@@ -9,9 +9,31 @@ import SwiftUI
 
 @main
 struct locationSwiftUIApp: App {
-    var body: some Scene {
+    
+    @Environment(\.scenePhase) private var scenePhase
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @SceneBuilder var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .background {
+               //perform cleanup
+            }
+        }
+        
+        #if os(macOS)
+            Settings{
+                ContentView()
+            }
+        #endif
+        
     }
 }
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+            return true
+        }
+    }

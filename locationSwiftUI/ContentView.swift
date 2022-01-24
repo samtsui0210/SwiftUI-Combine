@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!").padding()
+//        ViewControllerPreview()
+        MapControlView()
+                    .environmentObject(LocationManager())
+                    .environmentObject(MapControlViewModel())
     }
 }
 

@@ -4,10 +4,48 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>locationSwiftUI.xcscheme_^#shared#^_</key>
+		<key>LocationWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>MacLocationSwiftUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>locationSwiftUI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>macLocationSwiftUI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A0216DAB255D1A8C004C2A39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A05478BD24BFFC6000E62517</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A05478CE24BFFC6200E62517</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A05478D924BFFC6200E62517</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
