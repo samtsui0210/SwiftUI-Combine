@@ -7,14 +7,26 @@
 
 import SwiftUI
 
-struct MainViewRouter: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class MainViewRouter: NSObject, ObservableObject {
+    
+    enum MainViewPage{
+        case Home
+        case Map
     }
-}
-
-struct MainViewRouter_Previews: PreviewProvider {
-    static var previews: some View {
-        MainViewRouter()
+    
+    typealias Page = MainViewPage
+    
+    @Published var currentPage =  Page.Home
+    
+    let homeView = HomeView()
+    let mapControlView = MapControlView()
+    
+    override init() {
+        super.init()
     }
+    
+    func setPage(_ page: Page){
+        currentPage = page
+    }
+    
 }

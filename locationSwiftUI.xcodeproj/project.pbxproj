@@ -33,6 +33,10 @@
 		A02C06D9256649FE00FD70CB /* CommonResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C06D8256649FE00FD70CB /* CommonResponseHandler.swift */; };
 		A02C06E82566514800FD70CB /* CountryParkPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C06E72566514800FD70CB /* CountryParkPointAnnotation.swift */; };
 		A02C06F6256659C200FD70CB /* CountryParkResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C06F5256659C200FD70CB /* CountryParkResponseHandler.swift */; };
+		A04F952127A0FFDE00BF350F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F952027A0FFDE00BF350F /* MainView.swift */; };
+		A04F952427A116A900BF350F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F952327A116A900BF350F /* HomeView.swift */; };
+		A04F952727A1278700BF350F /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F952627A1278700BF350F /* MainViewRouter.swift */; };
+		A04F952A27A2771300BF350F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F952927A2771300BF350F /* WebView.swift */; };
 		A05478C224BFFC6000E62517 /* locationSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05478C124BFFC6000E62517 /* locationSwiftUIApp.swift */; };
 		A05478C424BFFC6000E62517 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05478C324BFFC6000E62517 /* ContentView.swift */; };
 		A05478C624BFFC6100E62517 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A05478C524BFFC6100E62517 /* Assets.xcassets */; };
@@ -135,6 +139,10 @@
 		A02C06D8256649FE00FD70CB /* CommonResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponseHandler.swift; sourceTree = "<group>"; };
 		A02C06E72566514800FD70CB /* CountryParkPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryParkPointAnnotation.swift; sourceTree = "<group>"; };
 		A02C06F5256659C200FD70CB /* CountryParkResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryParkResponseHandler.swift; sourceTree = "<group>"; };
+		A04F952027A0FFDE00BF350F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A04F952327A116A900BF350F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A04F952627A1278700BF350F /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
+		A04F952927A2771300BF350F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A05478BE24BFFC6000E62517 /* locationSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locationSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05478C124BFFC6000E62517 /* locationSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationSwiftUIApp.swift; sourceTree = "<group>"; };
 		A05478C324BFFC6000E62517 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -309,6 +317,38 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		A04F951F27A0FED500BF350F /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A04F952027A0FFDE00BF350F /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		A04F952227A1169C00BF350F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A04F952327A116A900BF350F /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A04F952527A1277600BF350F /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				A04F952627A1278700BF350F /* MainViewRouter.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		A04F952827A2770600BF350F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				A04F952927A2771300BF350F /* WebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		A05478B524BFFC5F00E62517 = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +423,7 @@
 		A05478EC24BFFCF200E62517 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A04F952527A1277600BF350F /* MainView */,
 				A057C98A279547B0005CFE19 /* MapView */,
 				A057C92E27951BEE005CFE19 /* LocationManager */,
 				A05478F024BFFD0900E62517 /* BikeLockerManagerViewModel.swift */,
@@ -394,6 +435,9 @@
 		A05478F524BFFD1D00E62517 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A04F952827A2770600BF350F /* WebView */,
+				A04F952227A1169C00BF350F /* Home */,
+				A04F951F27A0FED500BF350F /* MainView */,
 				A057C90C27950D9F005CFE19 /* MapControlView */,
 				A05478F724BFFD2F00E62517 /* BikeLockerManagerView.swift */,
 				A05478F624BFFD2F00E62517 /* ScannerView.swift */,
@@ -781,10 +825,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A057C91827950E35005CFE19 /* LeftSideMenu.swift in Sources */,
+				A04F952127A0FFDE00BF350F /* MainView.swift in Sources */,
 				A054790824BFFD6B00E62517 /* CameraPreview.swift in Sources */,
 				A02C06D325661C1000FD70CB /* ResponseHandler.swift in Sources */,
 				A02B5D7B2563751E00FCCC17 /* CustomCollectionViewCell.swift in Sources */,
 				A0216DED255D2032004C2A39 /* MapControlViewModel.swift in Sources */,
+				A04F952A27A2771300BF350F /* WebView.swift in Sources */,
 				A05478F224BFFD0900E62517 /* LocationManagerCombine.swift in Sources */,
 				A02B5D3C256256A300FCCC17 /* SideMenu.swift in Sources */,
 				A054791724BFFDC400E62517 /* TextView.swift in Sources */,
@@ -795,6 +841,8 @@
 				A054790D24BFFD8600E62517 /* NearbyAnnotation.swift in Sources */,
 				A057C91227950DFD005CFE19 /* ControlPannel.swift in Sources */,
 				A05478C424BFFC6000E62517 /* ContentView.swift in Sources */,
+				A04F952727A1278700BF350F /* MainViewRouter.swift in Sources */,
+				A04F952427A116A900BF350F /* HomeView.swift in Sources */,
 				A057CA6A27980CFB005CFE19 /* MapService.swift in Sources */,
 				A054790524BFFD6B00E62517 /* ActivityIndicator.swift in Sources */,
 				A054790624BFFD6B00E62517 /* MaskPreview.swift in Sources */,

@@ -10,7 +10,7 @@ target 'locationSwiftUI' do
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxCoreLocation'
+#  pod 'RxCoreLocation'
 
   target 'locationSwiftUITests' do
     inherit! :search_paths

@@ -11,7 +11,9 @@ import Combine
 
 class MapControlViewModel: ObservableObject {
     
-    @Published var showSearchList: Bool = false
+    static let shared = MapControlViewModel()
+    
+    @Published var showControlPannel: Bool = false
     
     @Published var searchText: String = ""
     
@@ -23,6 +25,9 @@ class MapControlViewModel: ObservableObject {
     
     @Published var searchingNearby:Bool = false
     @Published var mapItems:[MKMapItem] = []
+    
+    @Published var annotaionURL:String = ""
+    @Published var controlMenuType: ControlMenuType = .search
     
     enum Event {
         case refreshMap
@@ -85,9 +90,6 @@ class MapControlViewModel: ObservableObject {
         case .completeCountryParkSearch(let result, let annotations):
             isLoading = false
             return result ? CountryParkState(searching: .result(annotations: annotations)) : Idle()
-        default:
-            debugPrint("Invalid perform action")
-            return Idle()
         }
     }
 
@@ -105,6 +107,7 @@ class MapControlViewModel: ObservableObject {
     //MARK:- Map Function
     
     func searchNearby(){
+        self.mapItems = []
         searchingNearby = true
         mapService.searchNearby(searchText)
             .receive(on: DispatchQueue.main)
@@ -182,6 +185,10 @@ class MapControlViewModel: ObservableObject {
                 }
             }
             .store(in: &subscription)
+    }
+    
+    func updateControlMenuTpye(_ controlMenuType: ControlMenuType){
+        self.controlMenuType = controlMenuType
     }
     
     func mapViewSnapshot(mapView: MKMapView){

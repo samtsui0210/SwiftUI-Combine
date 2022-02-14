@@ -30,7 +30,7 @@ struct SideMenu: View {
                         .imageScale(.large)
                     Text("Widget Image")
                         .foregroundColor(.white)
-                        .font(.headline)
+                        .font(.subheadline)
                 }
                 .padding(.top, topSafeArea + 30)
             }
@@ -52,7 +52,7 @@ struct SideMenu: View {
                         .imageScale(.large)
                     Text("Collection View")
                         .foregroundColor(.white)
-                        .font(.headline)
+                        .font(.subheadline)
                 }
                 .font(.title)
             }
@@ -68,7 +68,7 @@ struct SideMenu: View {
                             .imageScale(.large)
                         Text("QR Scan")
                             .foregroundColor(.white)
-                            .font(.headline)
+                            .font(.subheadline)
                     }
                     .font(.title)
                 }

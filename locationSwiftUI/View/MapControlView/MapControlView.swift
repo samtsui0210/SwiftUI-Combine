@@ -17,6 +17,8 @@ struct MapControlView:View{
     
     @State private var showMenu:Bool = false
     
+    let mapView = MapView()
+    
     init(centerCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()) {
         self.centerCoordinate = centerCoordinate
         UITableView.appearance().backgroundColor = .clear
@@ -33,9 +35,8 @@ struct MapControlView:View{
     var body: some View {
         
         NavigationView {
-            
             ZStack {
-                MapView()
+                mapView
                     .edgesIgnoringSafeArea(.all)
                     .zIndex(0)
                 
@@ -50,7 +51,7 @@ struct MapControlView:View{
                                 self.viewModel.dispatch(.refreshMap)
                             }
                         }.animation(Animation.default.delay(0.2))
-                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
+                            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing)))
                         
                         HStack(spacing: 8) {
                             Spacer()
@@ -66,7 +67,8 @@ struct MapControlView:View{
                             Spacer()
                             Text("Search")
                             ControlBtn(contentView: Image(systemName: "magnifyingglass")) {
-                                self.viewModel.showSearchList = true
+                                self.viewModel.showControlPannel = true
+                                self.viewModel.controlMenuType = .search
                                 self.viewModel.searchText = ""
                             }
                         }
@@ -87,7 +89,7 @@ struct MapControlView:View{
                 .padding()
                 .zIndex(1)
                 
-                if viewModel.showSearchList{
+                if viewModel.showControlPannel{
                     ControlPannel()
                         .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                         .gesture(self.dissmissKeyboardTap)
@@ -104,7 +106,7 @@ struct MapControlView:View{
                         .foregroundColor(.white)
                         .zIndex(3)
                 }
-
+                
                 LeftSideMenu()
             }
             .navigationBarTitle("")
@@ -117,6 +119,6 @@ struct MapControlView:View{
 struct MapControlView_Previews: PreviewProvider {
     static var previews: some View {
         MapControlView(centerCoordinate: MKPointAnnotation.example.coordinate)
-            .environmentObject(LocationManager()).environmentObject(MapControlViewModel())
+            .environmentObject(LocationManager.shared).environmentObject(MapControlViewModel.shared)
     }
 }

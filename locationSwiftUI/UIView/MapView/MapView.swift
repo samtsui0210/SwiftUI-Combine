@@ -17,16 +17,24 @@ struct MapView: UIViewRepresentable {
     @EnvironmentObject var locationManger:LocationManager
     @EnvironmentObject var viewModel:MapControlViewModel
     
+    static private var mapViews = [MKMapView]()
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
-        let mapView = MKMapView()
-        mapView.delegate = context.coordinator
-        mapView.showsUserLocation = true
-        mapView.layoutMargins = UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 8)
-        return mapView
+        
+        if let curMapView = MapView.mapViews.first{
+            return curMapView
+        }else{
+            let mapView = MKMapView(frame: .zero)
+            mapView.delegate = context.coordinator
+            mapView.showsUserLocation = true
+            mapView.layoutMargins = UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 8)
+            MapView.mapViews = [mapView]
+            return mapView
+        }
     }
     
     func updateUIView(_ view: MKMapView, context: UIViewRepresentableContext<MapView>) {
@@ -65,11 +73,11 @@ struct MapView: UIViewRepresentable {
             }
         }
         
-//        view.removeAnnotations(view.annotations)
-//        view.addAnnotations(self.viewModel.annotations)
+        //        view.removeAnnotations(view.annotations)
+        //        view.addAnnotations(self.viewModel.annotations)
         
         switch viewModel.state{
-        
+            
         case let state as MapControlViewModel.CountryParkState:
             if case .result(let annotations) = state.searching{
                 view.removeAnnotations(view.annotations)
@@ -100,7 +108,26 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
-            //            print("tapped : ", view.annotation?.coordinate)
+            
+            switch parent.viewModel.state{
+            case let state as MapControlViewModel.CountryParkState:
+                if case .result(let annotations) = state.searching{
+                    annotations.forEach { annotaion in
+                        
+                        if let mapAnnotation = view.annotation{
+                            if mapAnnotation.isEqual(annotaion){
+                                guard let url = URL(string: annotaion.webSite) else { return }
+//                                UIApplication.shared.open(url)
+                                parent.viewModel.annotaionURL = annotaion.webSite
+                                parent.viewModel.showControlPannel = true
+                                parent.viewModel.controlMenuType = .info
+                            }
+                        }
+                    }
+                }
+            default:
+                return
+            }
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -116,7 +143,7 @@ struct MapView: UIViewRepresentable {
             
             let reuseIdentifier = "pin"
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-
+            
             if annotation as! NSObject != mapView.userLocation{
                 return nil
             }
@@ -152,5 +179,11 @@ extension UIImage {
         return UIGraphicsImageRenderer(size: size).image { _ in
             draw(in: CGRect(origin: .zero, size: size))
         }
+    }
+}
+
+extension MKAnnotation{
+    func isEqual (_ annotation: MKAnnotation) -> Bool {
+        return (self.coordinate.latitude == annotation.coordinate.latitude && self.coordinate.longitude == annotation.coordinate.longitude)
     }
 }
