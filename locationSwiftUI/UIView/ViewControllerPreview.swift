@@ -14,7 +14,8 @@ struct ViewControllerPreview: UIViewControllerRepresentable{
     
     
     func makeUIViewController(context: Context) -> UIViewController {
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController")
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewController")
+//        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "InputViewController")
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {

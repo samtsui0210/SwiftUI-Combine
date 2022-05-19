@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
 //        ViewControllerPreview()
         MainView()
+            .environmentObject(MainViewRouter())
 //        MapControlView()
 //                    .environmentObject(LocationManager())
 //                    .environmentObject(MapControlViewModel())

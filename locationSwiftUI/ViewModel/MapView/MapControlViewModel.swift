@@ -97,6 +97,7 @@ class MapControlViewModel: ObservableObject {
         DispatchQueue.main.async {
             print("state : \(self.state) \n event : \(event) \n")
             self.state = self.reducer(event)
+            print("Current State: \(self.state)")
         }
     }
     

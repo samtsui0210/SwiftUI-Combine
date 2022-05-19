@@ -10,10 +10,14 @@ import MapKit
 
 struct MainView: View {
     
-    @StateObject var router: MainViewRouter = MainViewRouter()
+    @EnvironmentObject var router:MainViewRouter
     
     var body: some View {
         GeometryReader { geometry in
+            
+            let buttonW = geometry.size.width/5
+            let buttonH = geometry.size.height/20
+            
             VStack(spacing: 0) {
                 
                 switch router.currentPage{
@@ -25,21 +29,29 @@ struct MainView: View {
 //                    MapControlView()
                     router.mapControlView
                         .environmentObject(LocationManager.shared)
-                        .environmentObject(MapControlViewModel())
+                        .environmentObject(MapControlViewModel.shared)
+                case .Form:
+                    if router.isNavigator{
+                        NavHeader(topSafe: geometry.safeAreaInsets.top,
+                                  width: geometry.size.width)
+                    }
+                    router.formView
+                        .environmentObject(FormViewModel())
+
                 }
                 
                 HStack(alignment: .center){
                     Spacer()
-                    TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "map.fill", tabName: "Map") {
+                    TabBarIcon(width: buttonW, height: buttonH, systemIconName: "map.fill", tabName: "Map") {
                         router.setPage(MainViewRouter.Page.Map)
                     }
                     Spacer()
-                    MainButton(width: geometry.size.width/5, height: geometry.size.width, offSetY: -geometry.size.height/8/2){
+                    MainButton(width: buttonW, height: geometry.size.height/7, offSetY: -geometry.size.height/8/2){
                         router.setPage(MainViewRouter.Page.Home)
                     }
                     Spacer()
-                    TabBarIcon(width: geometry.size.width/5, height: geometry.size.height/28, systemIconName: "waveform", tabName: "Interesting") {
-                        router.setPage(MainViewRouter.Page.Home)
+                    TabBarIcon(width: buttonW, height: buttonH, systemIconName: "waveform", tabName: "Form Create") {
+                        router.setPage(MainViewRouter.Page.Form)
                     }
                     Spacer()
                 }
@@ -52,25 +64,58 @@ struct MainView: View {
     }
 }
 
+struct NavHeader: View {
+    
+    let topSafe, width: CGFloat
+    
+    var body: some View{
+        VStack(){
+            HStack(spacing: 8){
+                Button(action: {
+                    print("button pressed")
+                }) {
+                    Image("back")
+                }
+                .frame(width: 30)
+                Text("Title")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .font(Font.custom("PingFangTC-Semibold", size: 25))
+                    .frame(maxWidth: .infinity, alignment: .center)
+                Spacer()
+                    .frame(width: 30)
+            }
+            .padding(EdgeInsets(top: 5 + topSafe, leading: 30, bottom: 20, trailing: 30))
+            .frame(maxWidth: .infinity)
+            .background(Color(UIColor.black))
+        }
+    }
+}
+
 struct MainButton: View{
     
     let width, height, offSetY: CGFloat
     let action: () -> Void
     
     var body: some View {
-        Button(action: action){
-            ZStack {
-                Circle()
-                    .foregroundColor(.white)
-                    .frame(width: width, height: height)
-                    .shadow(radius: 4)
-                Image(systemName: "house.circle.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: width-8 , height: height-8)
-                    .foregroundColor(.black)
-            }.offset(y: offSetY)
+        VStack(){
+//            Spacer()
+            Button(action: action){
+                ZStack {
+                    Circle()
+                        .foregroundColor(.white)
+                        .frame(width: width, height: height)
+                        .shadow(radius: 4)
+                    Image(systemName: "house.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: width-8 , height: height-8)
+                        .foregroundColor(.black)
+                }
+            }
+//            Spacer()
         }
+        .offset(y: offSetY)
     }
 }
 
@@ -86,13 +131,12 @@ struct TabBarIcon: View {
                 Image(systemName: systemIconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: width, height: height)
                     .padding(.top, 10)
+                    .frame(width: width, height: height)
                     .foregroundColor(.white)
                 Text(tabName)
                     .font(.footnote)
                     .foregroundColor(.white)
-                Spacer()
             }
         }
         

@@ -20,7 +20,7 @@ enum LocationError: Error {
 class LocationManager: NSObject, ObservableObject {
 
     static let shared = LocationManager()
-    
+
     private var cancellables = Set<AnyCancellable>()
     private let locationService = LocationService()
 
@@ -38,18 +38,18 @@ class LocationManager: NSObject, ObservableObject {
     func fetchLocation() {
         isLoading = true
 
-        locationService.requestWhenInUseAuthorization()
-            .flatMap { self.locationService.requestLocation() }
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                if case .failure(let error) = completion {
-                    self.locationError = error
-                }
-                self.isLoading = false
-            } receiveValue: { location in
-                self.location = location
-            }
-            .store(in: &cancellables)
+//        locationService.requestWhenInUseAuthorization()
+//            .flatMap { self.locationService.requestLocation() }
+//            .receive(on: DispatchQueue.main)
+//            .sink { completion in
+//                if case .failure(let error) = completion {
+//                    self.locationError = error
+//                }
+//                self.isLoading = false
+//            } receiveValue: { location in
+//                self.location = location
+//            }
+//            .store(in: &cancellables)
     }
 
 }

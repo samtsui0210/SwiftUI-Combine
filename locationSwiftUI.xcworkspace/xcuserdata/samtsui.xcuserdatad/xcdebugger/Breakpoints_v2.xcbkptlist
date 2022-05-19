@@ -3,4 +3,54 @@
    uuid = "E8FD4209-8771-44FB-B377-74758185756E"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12C89351-95B0-4760-B2F5-B4E0FC9E6183"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "locationSwiftUI/ViewModel/LocationManager/Combine/LocationManagerCombine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "12C89351-95B0-4760-B2F5-B4E0FC9E6183 - 509ee0c9df9d0511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "locationSwiftUI.LocationService.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "locationSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samtsui/SwiftUI-Combine/locationSwiftUI/ViewModel/LocationManager/Combine/LocationManagerCombine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  uuid = "12C89351-95B0-4760-B2F5-B4E0FC9E6183 - 509ee0c9df9d0511"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "locationSwiftUI.LocationService.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "locationSwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/samtsui/SwiftUI-Combine/locationSwiftUI/ViewModel/LocationManager/Combine/LocationManagerCombine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "191">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2FCAFF40FD1621EFF03D19E3 /* Pods_locationSwiftUI_locationSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F88049144A3098AB19B1FAA /* Pods_locationSwiftUI_locationSwiftUIUITests.framework */; };
 		406121A0DD4A95A59828E245 /* Pods_locationSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C8D29C3DB55F2639DFC4EE /* Pods_locationSwiftUITests.framework */; };
+		A0156F0A282DEE88003AE7A9 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0156F09282DEE88003AE7A9 /* InputViewController.swift */; };
+		A0156F0C282DEF0B003AE7A9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0156F0B282DEF0B003AE7A9 /* InputView.swift */; };
+		A0156F0F282DF892003AE7A9 /* UIControl-PublisherExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0156F0E282DF892003AE7A9 /* UIControl-PublisherExt.swift */; };
+		A0156F11282DFF49003AE7A9 /* TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0156F10282DFF49003AE7A9 /* TextPublisher.swift */; };
 		A0216DAE255D1A8C004C2A39 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0216DAD255D1A8C004C2A39 /* WidgetKit.framework */; };
 		A0216DB0255D1A8C004C2A39 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0216DAF255D1A8C004C2A39 /* SwiftUI.framework */; };
 		A0216DB3255D1A8C004C2A39 /* LocationWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0216DB2255D1A8C004C2A39 /* LocationWidget.swift */; };
@@ -65,6 +69,8 @@
 		A057C93A27951C23005CFE19 /* LocationManagerRxSwift-Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057C93927951C23005CFE19 /* LocationManagerRxSwift-Combine.swift */; };
 		A057C94C2795259A005CFE19 /* MapState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057C94B2795259A005CFE19 /* MapState.swift */; };
 		A057CA6A27980CFB005CFE19 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057CA6927980CFB005CFE19 /* MapService.swift */; };
+		A05CA4C82824B6E000435915 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CA4C72824B6E000435915 /* FormViewModel.swift */; };
+		A05CA4CB2824B71500435915 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05CA4CA2824B71500435915 /* FormView.swift */; };
 		C4DD1A1F30F018BEA91524F6 /* Pods_locationSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCB2F886D07CCBFED6DFEFC /* Pods_locationSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +120,10 @@
 		7205633F163ADE295750A209 /* Pods-locationSwiftUI-locationSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-locationSwiftUI-locationSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-locationSwiftUI-locationSwiftUIUITests/Pods-locationSwiftUI-locationSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		794C2BF307FA3733EA120525 /* Pods-locationSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-locationSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-locationSwiftUI/Pods-locationSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		7F88049144A3098AB19B1FAA /* Pods_locationSwiftUI_locationSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_locationSwiftUI_locationSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0156F09282DEE88003AE7A9 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		A0156F0B282DEF0B003AE7A9 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		A0156F0E282DF892003AE7A9 /* UIControl-PublisherExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl-PublisherExt.swift"; sourceTree = "<group>"; };
+		A0156F10282DFF49003AE7A9 /* TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPublisher.swift; sourceTree = "<group>"; };
 		A0216DAC255D1A8C004C2A39 /* LocationWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LocationWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0216DAD255D1A8C004C2A39 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A0216DAF255D1A8C004C2A39 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -178,6 +188,8 @@
 		A057C93927951C23005CFE19 /* LocationManagerRxSwift-Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationManagerRxSwift-Combine.swift"; sourceTree = "<group>"; };
 		A057C94B2795259A005CFE19 /* MapState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapState.swift; sourceTree = "<group>"; };
 		A057CA6927980CFB005CFE19 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		A05CA4C72824B6E000435915 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		A05CA4CA2824B71500435915 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		BC4BBCBCB19D594F7D052233 /* Pods-locationSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-locationSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-locationSwiftUITests/Pods-locationSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E5C8D29C3DB55F2639DFC4EE /* Pods_locationSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_locationSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -244,6 +256,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A0156F08282DEE46003AE7A9 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				A0156F09282DEE88003AE7A9 /* InputViewController.swift */,
+				A0156F0B282DEF0B003AE7A9 /* InputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		A0156F0D282DF87C003AE7A9 /* CombineExt */ = {
+			isa = PBXGroup;
+			children = (
+				A0156F0E282DF892003AE7A9 /* UIControl-PublisherExt.swift */,
+				A0156F10282DFF49003AE7A9 /* TextPublisher.swift */,
+			);
+			path = CombineExt;
+			sourceTree = "<group>";
+		};
 		A0216DB1255D1A8C004C2A39 /* LocationWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +312,7 @@
 		A02B5D68256374C500FCCC17 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A0156F08282DEE46003AE7A9 /* InputView */,
 				A02B5D752563751200FCCC17 /* CollectionView */,
 				A02B5D69256374EE00FCCC17 /* Main.storyboard */,
 			);
@@ -377,6 +408,7 @@
 		A05478C024BFFC6000E62517 /* locationSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A0156F0D282DF87C003AE7A9 /* CombineExt */,
 				A02B5D68256374C500FCCC17 /* Main */,
 				A0216E34255E19E6004C2A39 /* locationSwiftUI.entitlements */,
 				A054791124BFFDB600E62517 /* Common */,
@@ -423,6 +455,7 @@
 		A05478EC24BFFCF200E62517 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A05CA4C62824B6C700435915 /* Form */,
 				A04F952527A1277600BF350F /* MainView */,
 				A057C98A279547B0005CFE19 /* MapView */,
 				A057C92E27951BEE005CFE19 /* LocationManager */,
@@ -435,6 +468,7 @@
 		A05478F524BFFD1D00E62517 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A05CA4C92824B70600435915 /* Form */,
 				A04F952827A2770600BF350F /* WebView */,
 				A04F952227A1169C00BF350F /* Home */,
 				A04F951F27A0FED500BF350F /* MainView */,
@@ -544,6 +578,22 @@
 				A05478FD24BFFD6A00E62517 /* MapView.swift */,
 			);
 			path = MapView;
+			sourceTree = "<group>";
+		};
+		A05CA4C62824B6C700435915 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				A05CA4C72824B6E000435915 /* FormViewModel.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		A05CA4C92824B70600435915 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				A05CA4CA2824B71500435915 /* FormView.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -827,6 +877,7 @@
 				A057C91827950E35005CFE19 /* LeftSideMenu.swift in Sources */,
 				A04F952127A0FFDE00BF350F /* MainView.swift in Sources */,
 				A054790824BFFD6B00E62517 /* CameraPreview.swift in Sources */,
+				A0156F0A282DEE88003AE7A9 /* InputViewController.swift in Sources */,
 				A02C06D325661C1000FD70CB /* ResponseHandler.swift in Sources */,
 				A02B5D7B2563751E00FCCC17 /* CustomCollectionViewCell.swift in Sources */,
 				A0216DED255D2032004C2A39 /* MapControlViewModel.swift in Sources */,
@@ -843,6 +894,7 @@
 				A05478C424BFFC6000E62517 /* ContentView.swift in Sources */,
 				A04F952727A1278700BF350F /* MainViewRouter.swift in Sources */,
 				A04F952427A116A900BF350F /* HomeView.swift in Sources */,
+				A0156F11282DFF49003AE7A9 /* TextPublisher.swift in Sources */,
 				A057CA6A27980CFB005CFE19 /* MapService.swift in Sources */,
 				A054790524BFFD6B00E62517 /* ActivityIndicator.swift in Sources */,
 				A054790624BFFD6B00E62517 /* MaskPreview.swift in Sources */,
@@ -852,15 +904,19 @@
 				A02C06D9256649FE00FD70CB /* CommonResponseHandler.swift in Sources */,
 				A057C93A27951C23005CFE19 /* LocationManagerRxSwift-Combine.swift in Sources */,
 				A02C06F6256659C200FD70CB /* CountryParkResponseHandler.swift in Sources */,
+				A0156F0C282DEF0B003AE7A9 /* InputView.swift in Sources */,
 				A054790724BFFD6B00E62517 /* QrCodeScannerView.swift in Sources */,
 				A057C94C2795259A005CFE19 /* MapState.swift in Sources */,
 				A02B5D792563751E00FCCC17 /* CustomHeaderView.swift in Sources */,
 				A05478F424BFFD0900E62517 /* BikeLockerManagerViewModel.swift in Sources */,
 				A02B5D63256373A500FCCC17 /* ViewControllerPreview.swift in Sources */,
+				A05CA4CB2824B71500435915 /* FormView.swift in Sources */,
+				A0156F0F282DF892003AE7A9 /* UIControl-PublisherExt.swift in Sources */,
 				A05478F924BFFD2F00E62517 /* ScannerView.swift in Sources */,
 				A054791524BFFDC400E62517 /* Extension.swift in Sources */,
 				A02B5D4225625F5D00FCCC17 /* RoundedCorners.swift in Sources */,
 				A054790324BFFD6B00E62517 /* MapView.swift in Sources */,
+				A05CA4C82824B6E000435915 /* FormViewModel.swift in Sources */,
 				A05478C224BFFC6000E62517 /* locationSwiftUIApp.swift in Sources */,
 				A02B5D5D25636F7F00FCCC17 /* Button.swift in Sources */,
 				A02C06E82566514800FD70CB /* CountryParkPointAnnotation.swift in Sources */,

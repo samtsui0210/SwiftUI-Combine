@@ -10,6 +10,7 @@ target 'locationSwiftUI' do
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'CombineCocoa'
 #  pod 'RxCoreLocation'
 
   target 'locationSwiftUITests' do

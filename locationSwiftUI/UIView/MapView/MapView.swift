@@ -25,16 +25,16 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
         
-        if let curMapView = MapView.mapViews.first{
-            return curMapView
-        }else{
+//        if let curMapView = MapView.mapViews.first{
+//            return curMapView
+//        }else{
             let mapView = MKMapView(frame: .zero)
             mapView.delegate = context.coordinator
             mapView.showsUserLocation = true
             mapView.layoutMargins = UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 8)
             MapView.mapViews = [mapView]
             return mapView
-        }
+//        }
     }
     
     func updateUIView(_ view: MKMapView, context: UIViewRepresentableContext<MapView>) {
