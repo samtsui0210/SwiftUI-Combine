@@ -100,7 +100,7 @@ struct BikeLockerManagerView: View{
         @State var qrScanAction:Bool = false
         
         var body: some View {
-            NavigationLink( destination: ScannerView(macAddress: $macAddress).environmentObject(ScannerViewModel()), isActive: self.$qrScanAction){
+            NavigationLink( destination: ScannerView(macAddress: $macAddress).environmentObject(ScannerViewModel.shared), isActive: self.$qrScanAction){
                 Button(action:{
                     UIApplication.shared.endEditing()
                     self.qrScanAction = true

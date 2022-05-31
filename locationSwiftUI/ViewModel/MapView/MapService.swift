@@ -39,7 +39,7 @@ class MapService: NSObject {
         
         let publisher = PassthroughSubject<[CountryParkPointAnnotation], APIErrors>()
         
-        NetworkManager.getCountryPark(handler: CountryParkResponseHandler(){ success, errorMsg, error, annotations in
+        NetworkManager.getCountryPark(handler: CountryParkResponseHandler(){ success, error, annotations in
             if success{
                 publisher.send(annotations)
             }else{

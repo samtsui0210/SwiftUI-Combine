@@ -6,18 +6,29 @@
 //
 
 import Foundation
+import AVFoundation
 
 class ScannerViewModel: ObservableObject {
     
-    /// Defines how often we are going to try looking for a new QR-code in the camera feed.
+    static let shared = ScannerViewModel()
+    
     let scanInterval: Double = 1.0
-    var didScanQRcode: Bool = false
     
     @Published var torchIsOn: Bool = false
-    @Published var lastQrCode: String = ""
     
-    func onFoundQrCode(_ code: String) {
-        self.lastQrCode = code
+    @Published var scannedQRcode:AVMetadataMachineReadableCodeObject?
+    
+    @Published var didScanQRcode:Bool = false
+    
+    var cameraView: CameraPreview?
+    
+    func onFoundQrCode(_ result: AVMetadataMachineReadableCodeObject) {
+        self.scannedQRcode = result
+        self.didScanQRcode = true
+    }
+    
+    func setPreviewLayer(_ uiview: CameraPreview){
+        self.cameraView = uiview
     }
     
 }

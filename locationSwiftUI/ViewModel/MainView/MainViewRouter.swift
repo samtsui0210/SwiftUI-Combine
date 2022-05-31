@@ -17,7 +17,7 @@ class MainViewRouter: NSObject, ObservableObject {
     
     typealias Page = MainViewPage
     
-    @Published var currentPage =  Page.Home
+    @Published var currentPage =  Page.Map
     @Published var isNavigator =  false
     
     let homeView = HomeView()

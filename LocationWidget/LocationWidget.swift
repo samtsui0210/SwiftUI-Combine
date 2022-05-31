@@ -29,9 +29,6 @@ struct Provider: TimelineProvider {
         let currentMin = Calendar.current.component(.minute, from: currentDate)
         let currentSecond = Calendar.current.component(.second, from: currentDate)
         
-        let remainMin = (24 - currentHr - 1) * 60 + (60 - currentMin) - 1
-        let remainSecond = 60 - currentSecond
-        
         let image = LocalStorage.getImageFromUserDefaults()
         let mapImage = LocalStorage.getMapSnapshot()
         

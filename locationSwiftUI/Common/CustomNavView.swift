@@ -16,7 +16,7 @@ struct CustomNavView<Content: View>: View {
     var body: some View {
         ZStack {
             VStack{
-                if !isFullScreen{Spacer().frame(height: 50)}
+//                if !isFullScreen{Spacer().frame(height: 50)}
                 contentView
                     .edgesIgnoringSafeArea(.all)
             }

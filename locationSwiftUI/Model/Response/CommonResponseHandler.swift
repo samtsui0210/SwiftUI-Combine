@@ -9,7 +9,7 @@ import UIKit
 
 class CommonResponseHandler: ResponseHandler{
     
-    typealias CommonCallback = ( (_ success:Bool,_ errMsg:String?, _ error:APIErrors?) -> () )
+    typealias CommonCallback = ( (_ success:Bool, _ error:APIErrors?) -> () )
     var callback:CommonCallback
     
     init(callback:@escaping CommonCallback) {
@@ -17,11 +17,11 @@ class CommonResponseHandler: ResponseHandler{
     }
     
     func handle(_ requestData: NSDictionary, data: NSDictionary) {
-        self.callback(true,nil, nil)
+        self.callback(true, nil)
     }
     
-    func notifyFailure(_ error: APIErrors, errMsg: String) {
-        self.callback(false,errMsg, error)
+    func notifyFailure(_ error: APIErrors) {
+        self.callback(false, error)
     }
     
     

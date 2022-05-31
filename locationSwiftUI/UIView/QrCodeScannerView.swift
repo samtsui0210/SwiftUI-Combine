@@ -18,7 +18,7 @@ struct QrCodeScannerView: UIViewRepresentable {
     private let delegate = QrCodeCameraDelegate()
     private let metadataOutput = AVCaptureMetadataOutput()
     
-    @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var viewModel:ScannerViewModel
     
     func torchLight(isOn: Bool) -> QrCodeScannerView {
         if let backCamera = AVCaptureDevice.default(for: AVMediaType.video) {
@@ -40,7 +40,7 @@ struct QrCodeScannerView: UIViewRepresentable {
         return self
     }
     
-    func found(r: @escaping (String) -> Void) -> QrCodeScannerView {
+    func found(r: @escaping (AVMetadataMachineReadableCodeObject) -> Void) -> QrCodeScannerView {
         delegate.onResult = r
         return self
     }
@@ -54,7 +54,7 @@ struct QrCodeScannerView: UIViewRepresentable {
         
         if let backCamera = AVCaptureDevice.default(for: AVMediaType.video) {
             if let input = try? AVCaptureDeviceInput(device: backCamera) {
-                session.sessionPreset = .photo
+//                session.sessionPreset = .photo
                 
                 if session.canAddInput(input) {
                     session.addInput(input)
@@ -71,6 +71,8 @@ struct QrCodeScannerView: UIViewRepresentable {
                 previewLayer.videoGravity = .resizeAspectFill
                 uiView.layer.addSublayer(previewLayer)
                 uiView.previewLayer = previewLayer
+                
+                viewModel.setPreviewLayer(uiView)
                 
                 session.startRunning()
             }
@@ -125,9 +127,9 @@ struct QrCodeScannerView: UIViewRepresentable {
         uiView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         uiView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
-        if !self.presentationMode.wrappedValue.isPresented{
-            uiView.session.stopRunning()
-        }
+//        if viewModel.didScanQRcode{
+//            uiView.session.stopRunning()
+//        }
         
     }
     

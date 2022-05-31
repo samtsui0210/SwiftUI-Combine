@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ScannerView: View {
     
@@ -19,20 +20,43 @@ struct ScannerView: View {
     
     var body: some View {
         
-        CustomNavView(contentView:
-                        qrcodeScannerView
-                        .found(r: { qrCode in
-                            self.viewModel.onFoundQrCode(qrCode)
-                            self.macAddress = self.viewModel.lastQrCode
-                            self.viewModel.lastQrCode = ""
-                            self.presentationMode.wrappedValue.dismiss()
-                        })
-                        .torchLight(isOn: self.viewModel.torchIsOn)
-                        .interval(delay: self.viewModel.scanInterval),
-                      isFullScreen: true, backAction: {
-                        self.macAddress = self.viewModel.lastQrCode
-                        self.viewModel.lastQrCode = ""
-                      })
+        GeometryReader(content: { geometry in
+            
+            ZStack{
+                qrcodeScannerView
+                .found(r: { result in
+                    self.viewModel.onFoundQrCode(result)
+//                    self.viewModel.cameraView?.session.stopRunning()
+                    
+                })
+                .torchLight(isOn: self.viewModel.torchIsOn)
+                .interval(delay: self.viewModel.scanInterval)
+                    
+                    VStack {
+                        HStack {
+                            NavBackBtn(contentView: Image(systemName: "arrow.left")){
+                                self.viewModel.cameraView?.session.stopRunning()
+                            }
+                        }
+                        .padding(0)
+                        Spacer()
+                    }
+                }
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarHidden(true)
+                .padding(.top, 0)
+
+                if viewModel.didScanQRcode &&
+                    viewModel.scannedQRcode?.corners.count ?? 0 > 1{
+                    Path(){ path in
+                        let previewLayer = viewModel.cameraView?.previewLayer
+                        let corners = mapScannedCorners(previewLayer, metadataObject: viewModel.scannedQRcode!)
+                        path.addLines(corners)
+                        path.closeSubpath()
+                    }.stroke(.green, lineWidth: 5)
+                }
+        })
+
     }
     
     struct InnerSquare: Shape {
@@ -56,6 +80,17 @@ struct ScannerView: View {
                 ])
             }
         }
+    }
+    
+    func mapScannedCorners(_ previewLayer:AVCaptureVideoPreviewLayer?, metadataObject:AVMetadataMachineReadableCodeObject) -> [CGPoint]{
+        var points:[CGPoint] = []
+        
+        if let barCodeObject = previewLayer?
+            .transformedMetadataObject(for: metadataObject) as? AVMetadataMachineReadableCodeObject{
+            points = barCodeObject.corners
+        }
+        
+        return points
     }
     
 }

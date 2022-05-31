@@ -43,21 +43,21 @@ struct SideMenu: View {
                 LocalStorage.saveIntoUserDefaults(image: image)
             }
             
-            NavigationLink(
-                destination: CustomNavView(contentView: ViewControllerPreview())
-            ){
-                HStack {
-                    Image(systemName: "folder")
-                        .foregroundColor(.white)
-                        .imageScale(.large)
-                    Text("Collection View")
-                        .foregroundColor(.white)
-                        .font(.subheadline)
-                }
-                .font(.title)
-            }
+//            NavigationLink(
+//                destination: CustomNavView(contentView: ViewControllerPreview())
+//            ){
+//                HStack {
+//                    Image(systemName: "folder")
+//                        .foregroundColor(.white)
+//                        .imageScale(.large)
+//                    Text("Collection View")
+//                        .foregroundColor(.white)
+//                        .font(.subheadline)
+//                }
+//                .font(.title)
+//            }
             
-            NavigationLink( destination: ScannerView(macAddress: $macAddress).environmentObject(ScannerViewModel()), isActive: self.$qrScanAction){
+            NavigationLink( destination: ScannerView(macAddress: $macAddress).environmentObject(ScannerViewModel.shared), isActive: self.$qrScanAction){
                 Button(action:{
                     UIApplication.shared.endEditing()
                     self.qrScanAction = true

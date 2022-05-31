@@ -11,7 +11,6 @@ target 'locationSwiftUI' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'CombineCocoa'
-#  pod 'RxCoreLocation'
 
   target 'locationSwiftUITests' do
     inherit! :search_paths
